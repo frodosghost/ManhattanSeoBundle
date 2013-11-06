@@ -1,0 +1,25 @@
+{
+    "name": "manhattan/seo-bundle",
+    "description": "A Symfony 2 bundle for adding SEO fields to entities.",
+    "type": "symfony-bundle",
+    "keywords": ["seo", "meta", "keywords"],
+    "homepage": "https://github.com/frodosghost/ManhattanSeoBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Rickard",
+            "email": "james@frodosghost.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "manhattan/publish-bundle": "dev-master"
+    },
+    "target-dir": "Manhattan/SEOBundle",
+    "autoload": {
+        "psr-0": {
+            "Manhattan\\SEOBundle": ""
+        }
+    },
+    "version": "dev-master"
+}
