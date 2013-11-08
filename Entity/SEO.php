@@ -66,9 +66,9 @@ abstract class SEO extends Publish
      */
     public function setSeo(array $seo)
     {
-        $this->setPageTitle($seo['pageTitle']);
-        $this->setMetaKeywords($seo['metaKeywords']);
-        $this->setMetaDescription($seo['metaDescription']);
+        $this->setPageTitle(isset($seo['pageTitle']) ? $seo['pageTitle'] : null);
+        $this->setMetaKeywords(isset($seo['metaKeywords']) ? $seo['metaKeywords'] : null);
+        $this->setMetaDescription(isset($seo['metaDescription']) ? $seo['metaDescription'] : null);
 
         return $this;
     }
