@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the PublishBundle package.
+ * This file is part of the SEOBundle package.
  *
  * (c) Frodosghost <http://frodosghost.com>
  *
