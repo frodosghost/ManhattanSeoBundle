@@ -47,6 +47,33 @@ abstract class SEO extends Publish
 
 
     /**
+     * Set SEO fields
+     */
+    public function getSeo()
+    {
+        return array(
+            'pageTitle' => $this->getPageTitle(),
+            'metaKeywords' => $this->getMetaKeywords(),
+            'metaDescription' => $this->getMetaDescription()
+        );
+    }
+
+    /**
+     * Set SEO fields
+     *
+     * @param  array $seo
+     * @return SEO
+     */
+    public function setSeo(array $seo)
+    {
+        $this->setPageTitle($seo['pageTitle']);
+        $this->setMetaKeywords($seo['metaKeywords']);
+        $this->setMetaDescription($seo['metaDescription']);
+
+        return $this;
+    }
+
+    /**
      * Set pageTitle
      *
      * @param  string $pageTitle

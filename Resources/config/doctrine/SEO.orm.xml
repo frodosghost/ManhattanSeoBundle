@@ -6,11 +6,11 @@
 
     <mapped-superclass name="Manhattan\SEOBundle\Entity\SEO">
 
-        <field name="pageTitle" column="page_title" type="string" />
+        <field name="pageTitle" column="page_title" type="string" nullable="true" />
 
-        <field name="metaKeywords" column="meta_keywords" type="text" />
+        <field name="metaKeywords" column="meta_keywords" type="text" nullable="true" />
 
-        <field name="metaDescription" column="meta_description" type="text" />
+        <field name="metaDescription" column="meta_description" type="text" nullable="true" />
 
     </mapped-superclass>
 
