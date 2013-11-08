@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="Manhattan\PublishBundle\Entity\Publish">
+    <mapped-superclass name="Manhattan\SEOBundle\Entity\SEO">
 
         <field name="pageTitle" column="page_title" type="string" />
 
