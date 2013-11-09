@@ -31,6 +31,9 @@ class ManhattanSEOExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        // Publish States
+        $container->setParameter('manhattan.seo.defaults', $config);
+
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
     }

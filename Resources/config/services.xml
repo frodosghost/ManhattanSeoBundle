@@ -4,17 +4,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="manhattan_seo.example.class">Manhattan\SEOBundle\Example</parameter>
+        <parameter key="manhattan_seo.twig.class">Manhattan\SEOBundle\Twig\SEOTwigExtension</parameter>
     </parameters>
 
     <services>
-        <service id="manhattan_seo.example" class="%manhattan_seo.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="manhattan_seo.twig" class="%manhattan_seo.twig.class%">
+            <argument type="service" id="twig" />
+            <argument>%manhattan.seo.defaults%</argument>
+            <argument>ManhattanSEOBundle:Twig:public.html.twig</argument>
+            <tag name="twig.extension" />
         </service>
     </services>
-    -->
+
 </container>

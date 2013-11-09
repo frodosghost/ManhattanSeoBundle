@@ -29,9 +29,23 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('manhattan_seo');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->scalarNode('keywords')
+                    ->defaultValue('default, keywords')
+                    ->info('Sets default keywords to be used as fall back for meta keywords.')
+                    ->end()
+                ->scalarNode('description')
+                    ->defaultValue('Meta Description')
+                    ->info('Sets default description to be used as fall back for meta keywords.')
+                    ->end()
+                ->scalarNode('title')
+                    ->defaultValue('Page Title')
+                    ->info('Sets default title to be used as fall back for meta title.')
+                    ->end()
+            ->end()
+        ->end();
 
         return $treeBuilder;
     }
