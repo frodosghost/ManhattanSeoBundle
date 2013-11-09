@@ -67,10 +67,11 @@ class SEOTwigExtension extends \Twig_Extension
      * @param  array   $options
      * @return string
      */
-    public function renderKeywords(array $options = array())
+    public function renderKeywords($entity = null, array $options = array())
     {
         $html = $this->getTemplate()->renderBlock('meta_keywords', array(
             'default' => $this->baseValues['keywords'],
+            'entity' => $entity,
             'options' => $options
         ));
 
@@ -83,10 +84,16 @@ class SEOTwigExtension extends \Twig_Extension
      * @param  array   $options
      * @return string
      */
-    public function renderDescription(array $options = array())
+    public function renderDescription($entity = null, array $options = array())
     {
+        // Set reserve words
+        if (is_string($entity) && !isset($options['reserve'])) {
+            $options['reserve'] = $entity;
+        }
+
         $html = $this->getTemplate()->renderBlock('meta_description', array(
             'default' => $this->baseValues['description'],
+            'entity' => (is_object($entity)) ? $entity : null,
             'options' => $options
         ));
 

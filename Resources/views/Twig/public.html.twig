@@ -1,10 +1,18 @@
 {% block meta_keywords %}{% spaceless %}
-    {{ default }}
+    {% if entity.metaKeywords is defined and entity.metaKeywords %}
+        {{ entity.metaKeywords }}
+    {% else %}
+        {{ default }}
+    {% endif %}
 {% endspaceless %}{% endblock %}
 
 
-{% block meta_description %}
-{% spaceless %}
-
-{% endspaceless %}
-{% endblock %}
+{% block meta_description %}{% spaceless %}
+    {% if entity and entity.metaDescription is defined and entity.metaDescription %}
+        {{ entity.metaDescription }}
+    {% elseif options.reserve %}
+        {{ options.reserve }}
+    {% else %}
+        {{ default }}
+    {% endif %}
+{% endspaceless %}{% endblock %}
