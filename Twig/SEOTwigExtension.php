@@ -44,7 +44,8 @@ class SEOTwigExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'metaKeywords'    => new \Twig_Function_Method($this, 'renderKeywords', array('is_safe' => array('html'))),
+            'pageTitle' => new \Twig_Function_Method($this, 'renderPageTitle', array('is_safe' => array('html'))),
+            'metaKeywords' => new \Twig_Function_Method($this, 'renderKeywords', array('is_safe' => array('html'))),
             'metaDescription' => new \Twig_Function_Method($this, 'renderDescription', array('is_safe' => array('html')))
         );
     }
@@ -81,7 +82,8 @@ class SEOTwigExtension extends \Twig_Extension
     /**
      * Renders Meta Description
      *
-     * @param  array   $options
+     * @param  mixed $entity
+     * @param  array $options
      * @return string
      */
     public function renderDescription($entity = null, array $options = array())
@@ -92,6 +94,29 @@ class SEOTwigExtension extends \Twig_Extension
         }
 
         $html = $this->getTemplate()->renderBlock('meta_description', array(
+            'default' => $this->baseValues['description'],
+            'entity' => (is_object($entity)) ? $entity : null,
+            'options' => $options
+        ));
+
+        return $html;
+    }
+
+    /**
+     * Renders Page Title
+     *
+     * @param  mixed $entity
+     * @param  array $options
+     * @return string
+     */
+    public function renderPageTitle($entity = null, array $options = array())
+    {
+        // Set reserve words
+        if (is_string($entity) && !isset($options['reserve'])) {
+            $options['reserve'] = $entity;
+        }
+
+        $html = $this->getTemplate()->renderBlock('page_title', array(
             'default' => $this->baseValues['description'],
             'entity' => (is_object($entity)) ? $entity : null,
             'options' => $options

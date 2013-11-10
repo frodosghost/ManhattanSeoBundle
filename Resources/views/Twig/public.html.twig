@@ -16,3 +16,13 @@
         {{ default }}
     {% endif %}
 {% endspaceless %}{% endblock %}
+
+{% block page_title %}{% spaceless %}
+    {% if entity and entity.pageTitle is defined and entity.pageTitle %}
+        {{ entity.pageTitle }}
+    {% elseif options.reserve %}
+        {{ options.reserve }}
+    {% else %}
+        {{ default }}
+    {% endif %}
+{% endspaceless %}{% endblock %}
